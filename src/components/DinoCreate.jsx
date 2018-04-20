@@ -11,6 +11,7 @@ export default function DinoCreate(props){
     console.log('Your dino\'s name is: ' + _name.value)
     let newDino = {
       name: _name.value,
+      alive: true,
       health: 100,
       satiety: 100,
       energy: 100,
@@ -18,7 +19,8 @@ export default function DinoCreate(props){
       birthMoment: new Moment(),
       birthTime: null,
       age: 0,
-      key: v4()
+      key: v4(),
+      className: "dinoCard"
     }
     console.log(newDino)
     console.log(newDino.birthTime)

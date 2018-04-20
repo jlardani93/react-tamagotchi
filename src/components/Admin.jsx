@@ -7,12 +7,13 @@ export default function Admin(props){
 
   return(
     <div>
-      <DinoList dinos={props.dinos}/>
+      <DinoList onIncreaseStat={props.onIncreaseStat} dinos={props.dinos}/>
       <DinoCreate onNewDino={props.onNewDino}/>
     </div>
   )
 }
 
 Admin.propTypes = {
-  onNewDino: PropTypes.func.isRequired
+  onNewDino: PropTypes.func.isRequired,
+  onIncreaseSTat: PropTypes.func.isRequired
 }
