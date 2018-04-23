@@ -36,7 +36,8 @@ export default function User(props){
           border-radius: 10px;
           box-shadow: 0 0 10px black;
           border: 1px solid black;
-          text-shadow: 0 0 1px black; 
+          text-shadow: 0 0 1px black;
+          cursor: pointer; 
         }
 
         button:hover {

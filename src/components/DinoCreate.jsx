@@ -6,9 +6,22 @@ import Moment from 'moment'
 export default function DinoCreate(props){
   let _name = null
 
+  let dinoClipPaths = [
+    '0px 0px',
+    '0px 120px',
+    '0px 240px',
+    '120px 0px',
+    '120px 120px',
+    '120px 240px',
+    '240px 0px',
+    '240px 120px',
+    '240px 240px'
+  ]
+
   function handleFormSubmit(event){
     event.preventDefault()
     console.log('Your dino\'s name is: ' + _name.value)
+    let myClipPath = dinoClipPaths[Math.floor(Math.random()*9)];
     let newDino = {
       name: _name.value,
       alive: true,
@@ -20,7 +33,8 @@ export default function DinoCreate(props){
       birthTime: null,
       age: 0,
       key: v4(),
-      className: "dinoCard"
+      className: "dinoCard",
+      spriteSheetPosition: myClipPath
     }
     console.log(newDino)
     console.log(newDino.birthTime)
@@ -47,6 +61,7 @@ export default function DinoCreate(props){
           border: 1px solid black;
           text-shadow: 0 0 1px black;
           margin-left: 20px;
+          cursor: pointer;
         }
 
         button:hover {

@@ -18,7 +18,9 @@ export default function Admin(props){
         }
       `}</style>
       <div className="adminContainer">
-        <DinoList onIncreaseStat={props.onIncreaseStat} dinos={props.dinos}/>
+        <DinoList onIncreaseStat={props.onIncreaseStat}
+           dinos={props.dinos}
+           onDisposeDino={props.onDisposeDino}/>
         <DinoCreate onNewDino={props.onNewDino}/>
       </div>
     </div>
@@ -27,5 +29,5 @@ export default function Admin(props){
 
 Admin.propTypes = {
   onNewDino: PropTypes.func.isRequired,
-  onIncreaseSTat: PropTypes.func.isRequired
+  onIncreaseStat: PropTypes.func.isRequired
 }

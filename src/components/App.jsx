@@ -24,6 +24,7 @@ export default class App extends React.Component {
     this.updateDinoBirthTimes = this.updateDinoBirthTimes.bind(this);
     this.updateDinoStats = this.updateDinoStats.bind(this);
     this.handleIncreaseStat = this.handleIncreaseStat.bind(this);
+    this.handleDisposeDino = this.handleDisposeDino.bind(this);
   }
 
   handleNewDino(dino){
@@ -50,7 +51,13 @@ export default class App extends React.Component {
       this.setState({dinoList: newDinoList});
     }
   }
-ß
+
+  handleDisposeDino(dinoKey){
+    let newDinoList = Object.assign({}, this.state.dinoList);
+    delete newDinoList[dinoKey];
+    this.setState({dinoList: newDinoList});
+  }
+
   updateDinoBirthTimes(){
     let newDinoList = Object.assign({}, this.state.dinoList);
     Object.values(newDinoList).forEach((dino)=>{
@@ -68,6 +75,7 @@ export default class App extends React.Component {
         dino.excitement -= 1;
         dino.energy -= 1;
       } else {
+        dino.alive = false;
         dino.className = "dinoCard dead";
       }
     })
@@ -76,7 +84,7 @@ export default class App extends React.Component {
 
   componentDidMount(){
     this.birthTimeUpdateTimer = setInterval(this.updateDinoBirthTimes, 5000);
-    this.dinoStatsUpdateTimer = setInterval(this.updateDinoStats, 100);
+    this.dinoStatsUpdateTimer = setInterval(this.updateDinoStats, 300);
   }
 
   componentWillUnmount(){
@@ -112,7 +120,7 @@ export default class App extends React.Component {
        <Header />
        <Switch>
          <Route exact path="/" render={()=><User onIncreaseStat={this.handleIncreaseStat} dinos={this.state.dinoList}/>} />
-         <Route path="/Admin" render={()=><Admin onIncreaseStat={this.handleIncreaseStat} onNewDino={this.handleNewDino} dinos={this.state.dinoList}/>} />
+         <Route path="/Admin" render={()=><Admin onIncreaseStat={this.handleIncreaseStat} onNewDino={this.handleNewDino} dinos={this.state.dinoList} onDisposeDino={this.handleDisposeDino}/>} />
        </Switch>
        <Footer />
       </div>

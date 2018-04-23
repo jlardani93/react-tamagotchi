@@ -15,7 +15,10 @@ export default function DinoList(props){
       `}</style>
       <div className="dinoList">
         {Object.values(props.dinos).map((dino)=>
-          <Dino dino={dino} key={dino.key} onIncreaseStat={props.onIncreaseStat}/>
+          <Dino dino={dino}
+             key={dino.key}
+             onIncreaseStat={props.onIncreaseStat}
+             onDisposeDino={props.onDisposeDino}/>
         )}
       </div>
     </div>
