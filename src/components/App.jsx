@@ -5,6 +5,7 @@ import Header from './Header'
 import User from './User'
 import Admin from './Admin'
 import Moment from 'moment'
+import seamless from '../assets/images/seamless.jpg'
 
 export default class App extends React.Component {
 
@@ -87,9 +88,25 @@ export default class App extends React.Component {
     return(
       <div>
         <style global jsx>{`
+
+          document {
+            height: 100%;
+          }
+
+          html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+          }
+
           body {
             font-family: monospace;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-image: url('${seamless}');
           }
+
         `}
         </style>
        <Header />

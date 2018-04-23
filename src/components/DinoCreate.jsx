@@ -30,13 +30,51 @@ export default function DinoCreate(props){
 
   return(
     <div>
-      <form onSubmit={handleFormSubmit}>
-        <label>Dino Name</label>
-        <input type='text'
-          ref={(input)=>{_name = input}}
-          required></input>
-        <button type='submit'>Submit</button>
-      </form>
+      <style jsx>{`
+        form {
+          display: flex;
+          padding: 20px;
+          justify-content: center;
+        }
+
+        button {
+          background-color: #63ad22;
+          color: white;
+          font-size: 20px;
+          font-weight: bold;
+          border-radius: 10px;
+          box-shadow: 0 0 10px black;
+          border: 1px solid black;
+          text-shadow: 0 0 1px black;
+          margin-left: 20px;
+        }
+
+        button:hover {
+          box-shadow: 0 0 5px black;
+        }
+
+        input {
+          height: 15px;
+          margin-left: 20px;
+          margin-top: 5px;
+          box-shadow: 0 0 2px black inset;
+        }
+
+        label {
+          margin-top: 3px;
+          font-size: 20px;
+          font-weight: bold;
+        }
+      `}</style>
+      <div>
+        <form onSubmit={handleFormSubmit}>
+          <label>Dino Name:</label>
+          <input type='text'
+            ref={(input)=>{_name = input}}
+            required></input>
+          <button type='submit'>Submit</button>
+        </form>
+      </div>
     </div>
   )
 

@@ -7,8 +7,20 @@ export default function Admin(props){
 
   return(
     <div>
-      <DinoList onIncreaseStat={props.onIncreaseStat} dinos={props.dinos}/>
-      <DinoCreate onNewDino={props.onNewDino}/>
+      <style jsx>{`
+        .adminContainer {
+          box-shadow: 0 0 25px black;
+          border-top: 2px solid black;
+          border-bottom: 2px solid black;
+          padding: 0;
+          background-color: lightyellow;
+          padding: 20px;
+        }
+      `}</style>
+      <div className="adminContainer">
+        <DinoList onIncreaseStat={props.onIncreaseStat} dinos={props.dinos}/>
+        <DinoCreate onNewDino={props.onNewDino}/>
+      </div>
     </div>
   )
 }

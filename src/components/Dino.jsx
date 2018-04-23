@@ -13,6 +13,9 @@ export default function Dino(props){
           border-radius: 10px;
           padding: 10px;
           margin-top: 30px;
+          background-color: #f9ae0c;
+          box-shadow: 0 0 5px black;
+          margin-right: 15px;
         }
 
         .dead {
@@ -20,11 +23,20 @@ export default function Dino(props){
           background-size: 200px 200px;
           background-opacity: 0.2;
         }
+
+        .dinoHeading {
+          background-color: white;
+          border: 1px solid black;
+          box-shadow: 0 0 5px inset;
+          border-radius: 10px;
+        }
       `}
       </style>
       <div className={props.dino.className}>
-        <h4>Dino Name: {props.dino.name}</h4>
-        <h5>Age: {props.dino.birthTime}</h5>
+        <div className="dinoHeading">
+          <h4>Dino Name: {props.dino.name}</h4>
+          <h5>Age: {props.dino.birthTime}</h5>
+        </div>
         <hr/>
         <h5>Health: {props.dino.health}</h5>
         <progress value={props.dino.health} max="100"></progress>

@@ -10,7 +10,9 @@ export default function Footer(){
           left: 0;
           width: 100%;
           z-index: 1;
-          background-color: royalblue;
+          background-color: #63ad22;
+          padding: 5px;
+          box-shadow: 0 0 5px black; 
           text-align: center;
           color: white;
           text-shadow: 0px 0px 15px black;
